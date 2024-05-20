@@ -1,0 +1,378 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+body {
+  background-color: #00606e;
+  background-image: linear-gradient(rgb(158, 255, 101),rgb(90, 197, 128),#007688,#0299b1 );
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100%;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #28373b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 50px;
+}
+
+#navbar a {
+  color: #fffefe;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.sidenav {
+  height: calc(100% - 150px); /* Adjusted height to not cover the navbar */
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 159px; /* Adjusted top to be below the navbar */
+  left: 0;
+  background-color: #28373b;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidenav a:hover,.dropdown-btn:hover{
+  color: #f1f1f1;
+}
+
+.open-nav {
+  font-size: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #01acc6;
+  margin: 6px 0;
+  transition: 0.4s;
+  margin-left: 45px;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.menu-title {
+  float: none;
+  position: absolute;
+  top: 10%;
+  left: 33%;
+  font-size: 60px;
+  color: rgb(123, 253, 47);
+}
+
+h2 {
+  text-align: center;
+  color: rgb(138, 234, 82);
+}
+
+p {
+  text-align: center;
+  color: rgb(112, 204, 58);
+}
+
+footer {
+  background-color: #28373b;
+  color: #01acc6;
+  margin-bottom: 0px;
+  position:relative;
+}
+
+.footerContainer {
+  width: 100%;
+  height: auto;
+  padding: 60px 30px 20px;
+  margin-top: 200px;
+}
+
+.SocialIcons {
+  display: flex;
+  justify-content: center;
+}
+
+.SocialIcons a {
+  text-decoration: none;
+  padding: 10px;
+  background-color: #28373b;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.SocialIcons a i {
+  font-size: 2em;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.SocialIcons a:hover {
+  background-color: #ffffff;
+  transition: 0.5s;
+}
+
+.SocialIcons a:hover i {
+  color: #28373b;
+  transition: 0.5s;
+}
+
+.FooterBottom {
+  text-decoration: none;
+  font-size: 0.6em;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.active {
+  background-color: #01acc6;
+  color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #28373b;
+  padding-left: 8px;
+}
+
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+.about-us{
+  margin-top: 100px;
+}
+
+.description{
+  float: left;
+  margin-left: 30px;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #01acc6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #002f36;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  color: #00404a;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #0299b1;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.form-container input[type="submit"] {
+  width: 100%;
+  background-color: #333;
+  color: #01acc6;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #5feaff;
+  color: #333;
+}
+
+.footerContainer {
+  text-align: center;
+  background-color: #28373b;
+  padding: 20px;
+  color: white;
+  margin-top: 20px;
+}
+
+.footerContainer .SocialIcons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.footerContainer .SocialIcons a:hover {
+  color: #bbb;
+}
+
+.FooterBottom {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+@media screen and (max-height: 450px) {
+#mySidenav {padding-top: 15px;}
+#mySidenav a {font-size: 18px;}
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next, .text {
+    font-size: 11px;
+  }
+}
